@@ -63,8 +63,15 @@ body{
     -webkit-text-fill-color:transparent;
 }
 
-.rings{ font-size:38px; margin:14px 0; }
-.open-btn span{ font-size:18px; color:#d4af37; }
+.rings{
+    font-size:38px;
+    margin:14px 0;
+}
+
+.open-btn span{
+    font-size:18px;
+    color:#d4af37;
+}
 
 /* INVITE */
 .invite{
@@ -80,48 +87,26 @@ body{
     to{opacity:1; transform:translateY(0)}
 }
 
-/* ===== MAIN CARD ===== */
-.card{
-    position:relative;
-    border-radius:38px;
-    padding:36px 24px 56px;
-    background:linear-gradient(145deg,rgba(45,15,28,.97),rgba(18,6,12,.99));
-    border:2.5px solid #d4af37;
-    box-shadow:
-        0 0 0 6px rgba(212,175,55,0.14),
-        0 35px 80px rgba(0,0,0,0.55);
-    overflow:hidden;
+.tagline{
+    text-align:center;
+    font-size:22px;
+    color:#d4af37;
+}
+.subline{
+    text-align:center;
+    font-size:16px;
+    opacity:.85;
+    margin-bottom:34px;
 }
 
-/* SVG FLORAL CORNERS */
-.corner{
-    position:absolute;
-    width:70px;
-    opacity:0;
-    transform:scale(0) rotate(-20deg);
-    animation:bloom 1.4s ease forwards;
-}
-
-.corner.tl{ top:-14px; left:-14px; }
-.corner.br{ bottom:-14px; right:-14px; transform:scale(0) rotate(160deg); }
-
-@keyframes bloom{
-    to{
-        opacity:1;
-        transform:scale(1) rotate(0deg);
-    }
-}
-
-/* TEXT */
-.tagline{text-align:center;font-size:22px;color:#d4af37;}
-.subline{text-align:center;font-size:16px;opacity:.85;margin-bottom:34px;}
-
+/* NAMES */
 .names-box{
-    border:1.5px solid rgba(255,209,102,.65);
-    border-radius:28px;
+    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
+    border:2px solid #d4af37;
+    border-radius:30px;
     padding:30px 20px;
     text-align:center;
-    box-shadow:0 0 28px rgba(255,209,102,.18);
+    box-shadow:0 0 40px rgba(212,175,55,.25);
 }
 
 .names{
@@ -129,33 +114,62 @@ body{
     font-size:44px;
     color:#ffd166;
 }
-.parents{font-size:15px;opacity:.9;margin:6px 0 18px;}
-.heart{font-size:26px;margin:12px 0;}
 
-.invite-text{
-    margin:30px 0 22px;
-    font-size:18px;
-    color:#f3d6a0;
-    font-style:italic;
-    text-align:center;
+.parents{
+    font-size:15px;
+    opacity:.9;
+    margin:6px 0 18px;
 }
 
-.section{margin:42px 0;}
-.section h3{text-align:center;color:#d4af37;font-size:24px;margin-bottom:18px;}
+/* RING IMAGE */
+.ring-img{
+    width:78px;
+    margin:14px auto 18px;
+    display:block;
+    filter:drop-shadow(0 0 12px rgba(212,175,55,.55));
+}
+
+/* DATE */
+.section{
+    margin:42px 0;
+}
+
+.section h3{
+    text-align:center;
+    color:#d4af37;
+    font-size:24px;
+    margin-bottom:18px;
+}
 
 .date-box{
-    border:1.5px dashed rgba(255,209,102,.7);
+    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
+    border:2px solid #d4af37;
     border-radius:26px;
     padding:26px;
     text-align:center;
     cursor:pointer;
-    box-shadow:0 0 25px rgba(255,209,102,.25);
+    box-shadow:0 0 35px rgba(212,175,55,.3);
 }
 
-.tap-text{color:#d4af37;font-size:18px;}
-.date-hidden{display:none;font-size:28px;margin-top:12px;color:#ffd166;}
+.tap-text{
+    color:#d4af37;
+    font-size:18px;
+}
 
-.venue{text-align:center;margin-top:26px;font-size:18px;}
+.date-hidden{
+    display:none;
+    font-size:28px;
+    margin-top:12px;
+    color:#ffd166;
+}
+
+/* VENUE */
+.venue{
+    text-align:center;
+    margin-top:26px;
+    font-size:18px;
+}
+
 .venue a{
     display:inline-block;
     margin-top:14px;
@@ -168,18 +182,34 @@ body{
     box-shadow:0 8px 20px rgba(212,175,55,.45);
 }
 
-.footer{text-align:center;margin-top:44px;opacity:.75;}
-
 /* CONFETTI */
-.petal{
+.confetti{
     position:fixed;
-    top:-20px;
     font-size:22px;
-    animation:fall 3s linear forwards;
+    pointer-events:none;
     z-index:999;
+    animation:burst 3.5s ease-out forwards;
 }
-@keyframes fall{
-    to{transform:translateY(120vh) rotate(360deg);opacity:0;}
+
+@keyframes burst{
+    to{
+        transform:translate(var(--x), var(--y)) rotate(720deg);
+        opacity:0;
+    }
+}
+
+.footer{
+    text-align:center;
+    margin-top:44px;
+    opacity:.75;
+}
+
+.invite-text{
+    margin:30px 0 20px;
+    font-size:18px;
+    color:#f3d6a0;
+    font-style:italic;
+    text-align:center;
 }
 
 audio{display:none;}
@@ -203,15 +233,6 @@ audio{display:none;}
 
 <!-- INVITE -->
 <div class="invite" id="invite">
-<div class="card">
-
-    <!-- SVG FLORALS -->
-    <svg class="corner tl" viewBox="0 0 100 100">
-        <path fill="#d4af37" d="M50 5 C60 30 90 40 50 95 C10 40 40 30 50 5Z"/>
-    </svg>
-    <svg class="corner br" viewBox="0 0 100 100">
-        <path fill="#d4af37" d="M50 5 C60 30 90 40 50 95 C10 40 40 30 50 5Z"/>
-    </svg>
 
     <div class="tagline">Love • Laughter • Forever</div>
     <div class="subline">Together with their families</div>
@@ -219,7 +240,10 @@ audio{display:none;}
     <div class="names-box">
         <div class="names">Yashika</div>
         <div class="parents">D/O Mrs. Saroj Khurana & Mr. Rajendra Khurana</div>
-        <div class="heart">❤️</div>
+
+        <!-- RINGS IMAGE -->
+        <img src="rings.png" alt="Wedding Rings" class="ring-img">
+
         <div class="names">Sarvesh</div>
         <div class="parents">S/O Mrs. Jyotsna Arora & Mr. Mohal Lal Arora</div>
     </div>
@@ -245,34 +269,41 @@ audio{display:none;}
     </div>
 
     <div class="footer">With love & blessings ✨</div>
-
-</div>
 </div>
 
 <script>
+const confettiChars = ["🌸","💮","✨","✦","✧"];
+
 function openInvite(){
     document.getElementById("openScreen").style.opacity="0";
     setTimeout(()=>{
         document.getElementById("openScreen").style.display="none";
         document.getElementById("invite").style.display="block";
         document.getElementById("music").play().catch(()=>{});
+        confettiBurst();
     },700);
 }
 
 function revealDate(){
     document.getElementById("tapText").style.display="none";
     document.getElementById("dateText").style.display="block";
-    confetti();
+    confettiBurst();
 }
 
-function confetti(){
-    for(let i=0;i<30;i++){
-        let p=document.createElement("div");
-        p.className="petal";
-        p.innerHTML=Math.random()>0.5?"🌸":"💮";
-        p.style.left=Math.random()*100+"vw";
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(),3000);
+function confettiBurst(){
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+
+    for(let i=0;i<60;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.innerHTML=confettiChars[Math.floor(Math.random()*confettiChars.length)];
+        c.style.left=cx+"px";
+        c.style.top=cy+"px";
+        c.style.setProperty("--x",(Math.random()*700-350)+"px");
+        c.style.setProperty("--y",(Math.random()*700-350)+"px");
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),4000);
     }
 }
 </script>
