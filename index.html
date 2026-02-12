@@ -3,297 +3,282 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️ #Sarvika ❤️</title>
+<title>❤️ #Sarvika ❤️ | Wedding Invite</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
 <style>
 body{
     margin:0;
     font-family:'Playfair Display', serif;
-    color:#f5e6c8;
-    overflow-x:hidden;
     background:
-        linear-gradient(rgba(25,8,15,.85), rgba(15,4,8,.95)),
-        url("bg.jpg");
+      linear-gradient(rgba(40,20,30,0.75),rgba(40,20,30,0.75)),
+      url('https://images.unsplash.com/photo-1523437237164-d442d57cc3c9');
     background-size:cover;
     background-position:center;
-    background-attachment:fixed;
-}
-
-/* OPEN SCREEN */
-.open-screen{
-    position:fixed;
-    inset:0;
-    background:
-        linear-gradient(rgba(30,10,18,.88), rgba(10,3,6,.95)),
-        url("bg.jpg");
-    background-size:cover;
-    background-position:center;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    z-index:10;
-    transition:opacity .8s ease;
+    overflow-x:hidden;
 }
 
-.open-btn{
+/* OPENING SCREEN */
+#opening{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#4b1c2f,#1f0d18);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.open-box{
     text-align:center;
-    padding:42px 52px;
-    border-radius:38px;
-    border:2px solid #d4af37;
+    color:#f3d6a0;
+    animation:fadeIn 1.2s ease;
+}
+
+.open-box h1{
+    font-family:'Dancing Script', cursive;
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.open-box button{
+    padding:14px 36px;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    background:linear-gradient(135deg,#d4af37,#b8962e);
+    color:#3b1a24;
     cursor:pointer;
-    background:linear-gradient(145deg,#2b0f1c,#16070d);
-    box-shadow:0 0 55px rgba(212,175,55,.45);
-    animation:royalPulse 2s infinite;
 }
 
-@keyframes royalPulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.06)}
-    100%{transform:scale(1)}
+/* MAIN CONTENT */
+#content{
+    display:none;
+    width:100%;
+    justify-content:center;
 }
 
-.open-btn h1{
+.card{
+    background:rgba(30,10,20,0.85);
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    padding:45px 28px;
+    max-width:430px;
+    width:90%;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4);
+    text-align:center;
+    color:#f7ead2;
+    animation:fadeUp 1.2s ease;
+}
+
+h1{
     font-family:'Dancing Script', cursive;
     font-size:46px;
-    margin:0;
-    background:linear-gradient(45deg,#ffd166,#d4af37);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.rings{
-    font-size:38px;
-    margin:14px 0;
-}
-
-.open-btn span{
-    font-size:18px;
-    color:#d4af37;
-}
-
-/* INVITE */
-.invite{
-    max-width:420px;
-    margin:auto;
-    padding:50px 22px 80px;
-    display:none;
-    animation:fadeUp 1.2s ease forwards;
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px)}
-    to{opacity:1; transform:translateY(0)}
-}
-
-.tagline{
-    text-align:center;
-    font-size:22px;
-    color:#d4af37;
-}
-.subline{
-    text-align:center;
-    font-size:16px;
-    opacity:.85;
-    margin-bottom:34px;
-}
-
-/* NAMES */
-.names-box{
-    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
-    border:2px solid #d4af37;
-    border-radius:30px;
-    padding:30px 20px;
-    text-align:center;
-    box-shadow:0 0 40px rgba(212,175,55,.25);
+    color:#e6c36a;
 }
 
 .names{
-    font-family:'Dancing Script', cursive;
-    font-size:44px;
-    color:#ffd166;
-}
-
-.parents{
-    font-size:15px;
-    opacity:.9;
-    margin:6px 0 18px;
+    margin-top:20px;
+    line-height:1.7;
+    font-size:18px;
 }
 
 .heart{
     font-size:26px;
-    margin:12px 0;
+    margin:15px 0;
+    color:#e6c36a;
 }
 
-/* CHECKLIST */
-.section{
-    margin:42px 0;
-}
-
-.section h3{
-    text-align:center;
-    color:#d4af37;
-    font-size:24px;
-    margin-bottom:18px;
-}
-
-.checklist{
+/* INVITE LINE */
+.invite-text{
+    margin:35px 0 25px;
     font-size:18px;
-    text-align:center;
+    color:#f3d6a0;
+    font-style:italic;
 }
 
-.row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-}
-.row span{ width:48%; }
-
-.center{ margin:12px 0; }
-
-/* DATE */
-.date-box{
-    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
+/* SAVE THE DATE */
+#scratch-wrapper{
+    position:relative;
+    width:260px;
+    height:85px;
+    margin:15px auto;
+    border-radius:18px;
+    overflow:hidden;
+    background:linear-gradient(135deg,#3b1a24,#2a0f18);
     border:2px solid #d4af37;
-    border-radius:26px;
-    padding:26px;
-    text-align:center;
     cursor:pointer;
-    box-shadow:0 0 35px rgba(212,175,55,.3);
 }
 
-.tap-text{
-    color:#d4af37;
-    font-size:18px;
+#dateText{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:600;
+    color:#f3d6a0;
+    z-index:1;
 }
 
-.date-hidden{
-    display:none;
-    font-size:28px;
-    margin-top:12px;
-    color:#ffd166;
+#overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,#d4af37,#b8962e);
+    z-index:2;
+}
+
+/* TASKS */
+.tasks{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    font-size:15px;
+}
+
+.tasks span:nth-child(3){
+    grid-column:1 / span 2;
+    text-align:center;
+}
+
+.tasks span:nth-child(4){
+    grid-column:1 / span 2;
+    text-align:center;
 }
 
 /* VENUE */
-.venue{
-    text-align:center;
-    margin-top:26px;
-    font-size:18px;
+.section{
+    margin-top:35px;
 }
 
-.venue a{
-    display:inline-block;
-    margin-top:14px;
-    padding:10px 26px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#d4af37,#ffd166);
-    color:#2b0f1c;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 8px 20px rgba(212,175,55,.45);
+.section h2{
+    color:#e6c36a;
+    margin-bottom:10px;
+}
+
+button.map{
+    margin-top:10px;
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#d4af37,#b8962e);
+    color:#3b1a24;
+    cursor:pointer;
 }
 
 /* CONFETTI */
-.petal{
+.confetti{
     position:fixed;
-    top:-20px;
-    font-size:22px;
-    animation:fall 3s linear forwards;
-    z-index:999;
+    width:10px;
+    height:10px;
+    background:#d4af37;
+    top:50%;
+    left:50%;
+    animation:confetti 1.5s ease-out forwards;
+    z-index:2000;
 }
 
-@keyframes fall{
+@keyframes confetti{
     to{
-        transform:translateY(120vh) rotate(360deg);
+        transform:translate(
+            calc(-50% + (random() * 200px)),
+            calc(-50% + (random() * 200px))
+        );
         opacity:0;
     }
 }
 
-.footer{
-    text-align:center;
-    margin-top:44px;
-    opacity:.75;
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-audio{display:none;}
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
 </style>
 </head>
 
 <body>
 
-<audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
-</audio>
-
 <!-- OPEN -->
-<div class="open-screen" id="openScreen">
-    <div class="open-btn" onclick="openInvite()">
-        <h1>#Sarvika ki Shaadi</h1>
-        <div class="rings">💍💍</div>
-        <span>Tap to open invitation</span>
+<div id="opening">
+    <div class="open-box">
+        <h1>#Sarvika ki Shadi 💍</h1>
+        <button onclick="openInvite()">Tap to Open</button>
     </div>
 </div>
 
-<!-- INVITE -->
-<div class="invite" id="invite">
+<!-- CARD -->
+<div id="content">
+<div class="card">
 
-    <div class="tagline">Love • Laughter • Forever</div>
-    <div class="subline">Together with their families</div>
+<h1>Wedding Invitation</h1>
 
-    <div class="names-box">
-        <div class="names">Yashika</div>
-        <div class="parents">D/O Mrs. Saroj Khurana & Mr. Rajendra Khurana</div>
+<div class="names">
+Yashika<br>
+D/O Mrs. Saroj Khurana & Mr. Rajendra Khurana
+<div class="heart">❤️</div>
+Sarvesh<br>
+S/O Mrs. Jyotsna Arora & Mr. Mohal Lal Arora
+</div>
 
-        <div class="heart">❤️</div>
+<div class="invite-text">
+Invite you to grace the occasion  
+as they begin their forever together
+</div>
 
-        <div class="names">Sarvesh</div>
-        <div class="parents">S/O Mrs. Jyotsna Arora & Mr. Mohal Lal Arora</div>
-    </div>
+<h2 style="color:#e6c36a;">Save the Date</h2>
 
-    <div class="section">
-        <h3>Save the Date ✨</h3>
-        <div class="date-box" onclick="revealDate()">
-            <div class="tap-text" id="tapText">Tap to reveal 💛</div>
-            <div class="date-hidden" id="dateText">22nd March 2026</div>
-        </div>
+<div id="scratch-wrapper" onclick="revealDate()">
+    <div id="dateText">Tap to Reveal</div>
+    <div id="overlay"></div>
+</div>
 
-        <div class="venue">
-            📍 Antilia by Zion, Sonipat<br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Antilia+by+Zion+Sonipat" target="_blank">
-                View on Map
-            </a>
-        </div>
-    </div>
+<div class="tasks">
+    <span>✔ Apply for leaves</span>
+    <span>✔ Prepare your attires</span>
+    <span>✔ Book your tickets</span>
+    <span>✔ Get ready for <b>#SarvikaKiShadi</b></span>
+</div>
 
-    <div class="footer">With love & blessings ✨</div>
+<div class="section">
+    <h2>Venue</h2>
+    <p>Antilia by Zion, Sonipat</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Antilia+by+Zion+Sonipat" target="_blank">
+        <button class="map">View Map</button>
+    </a>
+</div>
+
+</div>
 </div>
 
 <script>
 function openInvite(){
-    document.getElementById("openScreen").style.opacity="0";
-    setTimeout(()=>{
-        document.getElementById("openScreen").style.display="none";
-        document.getElementById("invite").style.display="block";
-        document.getElementById("music").play().catch(()=>{});
-    },700);
+    document.getElementById("opening").style.display="none";
+    document.getElementById("content").style.display="flex";
 }
 
+/* DATE REVEAL + CONFETTI */
 function revealDate(){
-    document.getElementById("tapText").style.display="none";
-    document.getElementById("dateText").style.display="block";
-    confetti();
-}
+    document.getElementById("overlay").style.display="none";
+    document.getElementById("dateText").innerText="22 March 2026";
 
-function confetti(){
-    for(let i=0;i<30;i++){
-        let p=document.createElement("div");
-        p.className="petal";
-        p.innerHTML=Math.random()>0.5?"🌸":"💮";
-        p.style.left=Math.random()*100+"vw";
-        p.style.animationDuration=(2+Math.random()*2)+"s";
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(),3000);
+    for(let i=0;i<40;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=Math.random()>0.5?"#d4af37":"#f3d6a0";
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),1500);
     }
 }
 </script>
