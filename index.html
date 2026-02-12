@@ -13,13 +13,35 @@ body{
     font-family:'Patrick Hand', cursive;
     background:#1e1e1e;
     color:#fff;
-    display:flex;
-    justify-content:center;
+    overflow-x:hidden;
 }
 
+/* CURTAIN */
+.curtain{
+    position:fixed;
+    top:0;
+    width:50%;
+    height:100vh;
+    background:linear-gradient(135deg,#3a0ca3,#7209b7,#f72585);
+    z-index:999;
+    animation:openCurtain 2.2s ease forwards;
+}
+
+.left-curtain{ left:0; }
+.right-curtain{ right:0; animation-delay:.1s; }
+
+@keyframes openCurtain{
+    to{
+        width:0;
+        opacity:0;
+    }
+}
+
+/* INVITE */
 .invite{
     max-width:420px;
     width:100%;
+    margin:auto;
     padding:40px 20px 70px;
     position:relative;
 }
@@ -132,7 +154,6 @@ body{
     position:fixed;
     width:8px;
     height:8px;
-    background:#ffb703;
     animation:fall 1.5s linear forwards;
 }
 
@@ -160,6 +181,10 @@ body{
 
 <body>
 
+<!-- Curtains -->
+<div class="curtain left-curtain"></div>
+<div class="curtain right-curtain"></div>
+
 <div class="invite">
 
     <div class="tagline">Love, Laughter & Happily Ever After</div>
@@ -185,7 +210,6 @@ body{
             </div>
 
             <div class="center">✔ Book your tickets</div>
-
             <div class="center">✔ Get ready for <b>#Sarvika</b></div>
         </div>
     </div>
