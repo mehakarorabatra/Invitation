@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>❤️ #Sarvika ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
 <style>
 body{
     margin:0;
-    font-family:'Patrick Hand', cursive;
-    background:#1b1b1b;
-    color:#fff;
+    font-family:'Playfair Display', serif;
+    background:radial-gradient(circle at top,#2b0f1c,#12070b);
+    color:#f5e6c8;
     overflow-x:hidden;
 }
 
@@ -20,7 +20,7 @@ body{
 .open-screen{
     position:fixed;
     inset:0;
-    background:radial-gradient(circle at top,#2a2a2a,#111);
+    background:radial-gradient(circle at top,#3a1020,#12070b);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -30,100 +30,103 @@ body{
 
 .open-btn{
     text-align:center;
-    padding:35px 45px;
-    border-radius:30px;
-    border:3px dashed #ffb703;
+    padding:40px 50px;
+    border-radius:35px;
+    border:2px solid #d4af37;
     cursor:pointer;
-    animation:pulse 1.8s infinite;
+    background:linear-gradient(145deg,#2b0f1c,#1a080f);
+    box-shadow:0 0 40px rgba(212,175,55,.35);
+    animation:royalPulse 2s infinite;
+}
+
+@keyframes royalPulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    100%{transform:scale(1)}
 }
 
 .open-btn h1{
     font-family:'Dancing Script', cursive;
-    font-size:42px;
+    font-size:44px;
     margin:0;
-    background:linear-gradient(45deg,#ffd166,#ffb703);
+    background:linear-gradient(45deg,#ffd166,#d4af37);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .rings{
-    font-size:34px;
-    margin:12px 0;
+    font-size:36px;
+    margin:14px 0;
 }
 
 .open-btn span{
     font-size:18px;
-    color:#ffb703;
-    opacity:.9;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.06)}
-    100%{transform:scale(1)}
+    color:#d4af37;
 }
 
 /* INVITE */
 .invite{
     max-width:420px;
     margin:auto;
-    padding:40px 20px 70px;
+    padding:45px 22px 75px;
     display:none;
-    animation:fadeUp 1s ease forwards;
+    animation:fadeUp 1.2s ease forwards;
 }
 
 @keyframes fadeUp{
-    from{opacity:0; transform:translateY(30px)}
+    from{opacity:0; transform:translateY(35px)}
     to{opacity:1; transform:translateY(0)}
 }
 
 .tagline{
     text-align:center;
     font-size:22px;
-    color:#ffb703;
+    color:#d4af37;
 }
 .subline{
     text-align:center;
     font-size:16px;
     opacity:.85;
-    margin-bottom:30px;
+    margin-bottom:32px;
 }
 
 /* Names */
 .names-box{
-    border:3px dashed #ffb703;
-    border-radius:24px;
-    padding:25px 15px;
+    background:linear-gradient(145deg,#2b0f1c,#1a080f);
+    border:2px solid #d4af37;
+    border-radius:26px;
+    padding:28px 18px;
     text-align:center;
+    box-shadow:0 0 30px rgba(212,175,55,.2);
 }
 
 .names{
     font-family:'Dancing Script', cursive;
-    font-size:42px;
-    color:#ffb703;
+    font-size:44px;
+    color:#ffd166;
 }
 
 .parents{
     font-size:15px;
-    opacity:.85;
+    opacity:.9;
     margin:6px 0 18px;
 }
 
 .heart{
     font-size:26px;
-    margin:10px 0;
+    margin:12px 0;
 }
 
 /* Checklist */
 .section{
-    margin:35px 0;
+    margin:38px 0;
 }
 
 .section h3{
     text-align:center;
-    color:#ffb703;
+    color:#d4af37;
     font-size:22px;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .checklist{
@@ -137,38 +140,52 @@ body{
 }
 .row span{ width:48%; }
 
-.center{ margin:10px 0; }
+.center{ margin:12px 0; }
 
-/* DATE TAP */
+/* DATE */
 .date-box{
-    border:2px dashed #ffb703;
-    border-radius:20px;
-    padding:20px;
+    background:linear-gradient(145deg,#2b0f1c,#1a080f);
+    border:2px solid #d4af37;
+    border-radius:22px;
+    padding:22px;
     text-align:center;
     cursor:pointer;
-    position:relative;
+    box-shadow:0 0 25px rgba(212,175,55,.2);
 }
 
 .tap-text{
-    color:#ffb703;
+    color:#d4af37;
     font-size:18px;
 }
 
 .date-hidden{
     display:none;
-    font-size:24px;
+    font-size:26px;
     margin-top:10px;
     color:#ffd166;
 }
 
-/* Confetti */
-.confetti{
+/* PHOTO */
+.photo{
+    display:none;
+    margin-top:28px;
+    text-align:center;
+    animation:fadeUp 1s ease forwards;
+}
+
+.photo img{
+    width:100%;
+    border-radius:24px;
+    border:2px solid #d4af37;
+    box-shadow:0 0 30px rgba(212,175,55,.3);
+}
+
+/* PETALS */
+.petal{
     position:fixed;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    top:-10px;
-    animation:fall 1.6s linear forwards;
+    top:-20px;
+    font-size:22px;
+    animation:fall 3s linear forwards;
     z-index:999;
 }
 
@@ -181,18 +198,24 @@ body{
 
 .venue{
     text-align:center;
-    margin-top:20px;
+    margin-top:22px;
+    font-size:18px;
 }
 
 .footer{
     text-align:center;
-    margin-top:40px;
+    margin-top:42px;
     opacity:.7;
 }
 </style>
 </head>
 
 <body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
 
 <!-- OPEN SCREEN -->
 <div class="open-screen" id="openScreen">
@@ -237,6 +260,12 @@ body{
             <div class="tap-text" id="tapText">Tap to open 💛</div>
             <div class="date-hidden" id="dateText">22nd March 2026</div>
         </div>
+
+        <div class="photo" id="photo">
+            <!-- Replace with couple photo -->
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Couple">
+        </div>
+
         <div class="venue">📍 Antilia by Zion, Sonipat</div>
     </div>
 
@@ -250,23 +279,28 @@ function openInvite(){
     setTimeout(()=>{
         document.getElementById("openScreen").style.display="none";
         document.getElementById("invite").style.display="block";
+        const music=document.getElementById("music");
+        music.volume=0.6;
+        music.play().catch(()=>{});
     },700);
 }
 
 function revealDate(){
     document.getElementById("tapText").style.display="none";
     document.getElementById("dateText").style.display="block";
-    confettiBurst();
+    document.getElementById("photo").style.display="block";
+    petals();
 }
 
-function confettiBurst(){
-    for(let i=0;i<50;i++){
-        let c=document.createElement("div");
-        c.className="confetti";
-        c.style.left=Math.random()*100+"vw";
-        c.style.background=["#ffb703","#ffd166","#f15bb5","#9b5de5"][Math.floor(Math.random()*4)];
-        document.body.appendChild(c);
-        setTimeout(()=>c.remove(),1600);
+function petals(){
+    for(let i=0;i<28;i++){
+        let p=document.createElement("div");
+        p.className="petal";
+        p.innerHTML=Math.random()>0.5?"🌸":"💮";
+        p.style.left=Math.random()*100+"vw";
+        p.style.animationDuration=(2+Math.random()*2)+"s";
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),3000);
     }
 }
 </script>
