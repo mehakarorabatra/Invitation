@@ -63,15 +63,8 @@ body{
     -webkit-text-fill-color:transparent;
 }
 
-.rings{
-    font-size:38px;
-    margin:14px 0;
-}
-
-.open-btn span{
-    font-size:18px;
-    color:#d4af37;
-}
+.rings{ font-size:38px; margin:14px 0; }
+.open-btn span{ font-size:18px; color:#d4af37; }
 
 /* INVITE */
 .invite{
@@ -87,19 +80,7 @@ body{
     to{opacity:1; transform:translateY(0)}
 }
 
-.tagline{
-    text-align:center;
-    font-size:22px;
-    color:#d4af37;
-}
-.subline{
-    text-align:center;
-    font-size:16px;
-    opacity:.85;
-    margin-bottom:34px;
-}
-
-/* ===== MAIN CARD (ROYAL BORDER) ===== */
+/* ===== MAIN CARD ===== */
 .card{
     position:relative;
     border-radius:38px;
@@ -109,28 +90,32 @@ body{
     box-shadow:
         0 0 0 6px rgba(212,175,55,0.14),
         0 35px 80px rgba(0,0,0,0.55);
+    overflow:hidden;
 }
 
-/* FLORAL CORNERS */
-.card::before,
-.card::after{
-    content:"🌸";
+/* SVG FLORAL CORNERS */
+.corner{
     position:absolute;
-    font-size:32px;
-    opacity:.85;
+    width:70px;
+    opacity:0;
+    transform:scale(0) rotate(-20deg);
+    animation:bloom 1.4s ease forwards;
 }
 
-.card::before{
-    top:-14px;
-    left:-14px;
+.corner.tl{ top:-14px; left:-14px; }
+.corner.br{ bottom:-14px; right:-14px; transform:scale(0) rotate(160deg); }
+
+@keyframes bloom{
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0deg);
+    }
 }
 
-.card::after{
-    bottom:-14px;
-    right:-14px;
-}
+/* TEXT */
+.tagline{text-align:center;font-size:22px;color:#d4af37;}
+.subline{text-align:center;font-size:16px;opacity:.85;margin-bottom:34px;}
 
-/* NAMES BOX (SOFTER BORDER) */
 .names-box{
     border:1.5px solid rgba(255,209,102,.65);
     border-radius:28px;
@@ -144,19 +129,9 @@ body{
     font-size:44px;
     color:#ffd166;
 }
+.parents{font-size:15px;opacity:.9;margin:6px 0 18px;}
+.heart{font-size:26px;margin:12px 0;}
 
-.parents{
-    font-size:15px;
-    opacity:.9;
-    margin:6px 0 18px;
-}
-
-.heart{
-    font-size:26px;
-    margin:12px 0;
-}
-
-/* INVITE LINE */
 .invite-text{
     margin:30px 0 22px;
     font-size:18px;
@@ -165,19 +140,9 @@ body{
     text-align:center;
 }
 
-/* SECTION */
-.section{
-    margin:42px 0;
-}
+.section{margin:42px 0;}
+.section h3{text-align:center;color:#d4af37;font-size:24px;margin-bottom:18px;}
 
-.section h3{
-    text-align:center;
-    color:#d4af37;
-    font-size:24px;
-    margin-bottom:18px;
-}
-
-/* DATE BOX (MATCH INNER STYLE) */
 .date-box{
     border:1.5px dashed rgba(255,209,102,.7);
     border-radius:26px;
@@ -187,25 +152,10 @@ body{
     box-shadow:0 0 25px rgba(255,209,102,.25);
 }
 
-.tap-text{
-    color:#d4af37;
-    font-size:18px;
-}
+.tap-text{color:#d4af37;font-size:18px;}
+.date-hidden{display:none;font-size:28px;margin-top:12px;color:#ffd166;}
 
-.date-hidden{
-    display:none;
-    font-size:28px;
-    margin-top:12px;
-    color:#ffd166;
-}
-
-/* VENUE */
-.venue{
-    text-align:center;
-    margin-top:26px;
-    font-size:18px;
-}
-
+.venue{text-align:center;margin-top:26px;font-size:18px;}
 .venue a{
     display:inline-block;
     margin-top:14px;
@@ -218,6 +168,8 @@ body{
     box-shadow:0 8px 20px rgba(212,175,55,.45);
 }
 
+.footer{text-align:center;margin-top:44px;opacity:.75;}
+
 /* CONFETTI */
 .petal{
     position:fixed;
@@ -226,18 +178,8 @@ body{
     animation:fall 3s linear forwards;
     z-index:999;
 }
-
 @keyframes fall{
-    to{
-        transform:translateY(120vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-.footer{
-    text-align:center;
-    margin-top:44px;
-    opacity:.75;
+    to{transform:translateY(120vh) rotate(360deg);opacity:0;}
 }
 
 audio{display:none;}
@@ -262,6 +204,14 @@ audio{display:none;}
 <!-- INVITE -->
 <div class="invite" id="invite">
 <div class="card">
+
+    <!-- SVG FLORALS -->
+    <svg class="corner tl" viewBox="0 0 100 100">
+        <path fill="#d4af37" d="M50 5 C60 30 90 40 50 95 C10 40 40 30 50 5Z"/>
+    </svg>
+    <svg class="corner br" viewBox="0 0 100 100">
+        <path fill="#d4af37" d="M50 5 C60 30 90 40 50 95 C10 40 40 30 50 5Z"/>
+    </svg>
 
     <div class="tagline">Love • Laughter • Forever</div>
     <div class="subline">Together with their families</div>
@@ -321,7 +271,6 @@ function confetti(){
         p.className="petal";
         p.innerHTML=Math.random()>0.5?"🌸":"💮";
         p.style.left=Math.random()*100+"vw";
-        p.style.animationDuration=(2+Math.random()*2)+"s";
         document.body.appendChild(p);
         setTimeout(()=>p.remove(),3000);
     }
